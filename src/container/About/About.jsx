@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
-import { urlFor, client } from '../../client';
+// import { urlFor, client } from '../../client';
 
 const About = () => {
   const [services, setServices] = useState([]);
 
-  useEffect(() => {
-    const query = '*[_type == "services"]';
+  // useEffect(() => {
+  //   const query = '*[_type == "services"]';
 
-    client.fetch(query).then((data) => {
-      setServices(data);
-    });
-  }, []);
+  //   client.fetch(query).then((data) => {
+  //     setServices(data);
+  //   });
+  // }, []);
 
   return (
     <>

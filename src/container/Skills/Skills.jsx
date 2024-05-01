@@ -3,29 +3,29 @@ import { motion } from 'framer-motion';
 import ReactTooltip from 'react-tooltip';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../client';
+// import { urlFor, client } from '../../client';
 import './Skills.scss';
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
 
-  useEffect(() => {
-    const query = '*[_type == "experiences"]';
-    const skillsQuery = '*[_type == "skills"]';
+  // useEffect(() => {
+  //   const query = '*[_type == "experiences"]';
+  //   const skillsQuery = '*[_type == "skills"]';
 
-    const Fetch = async ()=>{
-      const first = client.fetch(query).then((data)=> data);
-      const second = client.fetch(skillsQuery).then((data)=> data);
-      const allData = Promise.all([first , second]);
+  //   const Fetch = async ()=>{
+  //     const first = client.fetch(query).then((data)=> data);
+  //     const second = client.fetch(skillsQuery).then((data)=> data);
+  //     const allData = Promise.all([first , second]);
   
-      const [ experiences , skills ] = await allData;
+  //     const [ experiences , skills ] = await allData;
   
-      setExperiences(experiences);
-      setSkills(skills);
-    }
-    Fetch();
-  }, []);
+  //     setExperiences(experiences);
+  //     setSkills(skills);
+  //   }
+  //   Fetch();
+  // }, []);
 
   return (
     <>

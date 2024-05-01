@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import './Clients.scss'
 import { motion } from 'framer-motion'
 
-import { urlFor, client } from '../../client';
+// import { urlFor, client } from '../../client';
 
 const Clients = () => {
 
   const [clients, setClients] = useState([]);
 
-  useEffect(() => {
-    const clientsQuery = '*[_type == "clients"]';
+  // useEffect(() => {
+  //   const clientsQuery = '*[_type == "clients"]';
 
-    client.fetch(clientsQuery).then((data) => {
-      setClients(data);
-    });
-  }, []);
+  //   client.fetch(clientsQuery).then((data) => {
+  //     setClients(data);
+  //   });
+  // }, []);
 
   return (
     <div id='Clientes' className="app__clients">

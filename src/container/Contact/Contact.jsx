@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { images } from '../../constants';
-import { client } from '../../client';
+// import { client } from '../../client';
 import './Contact.scss';
 
 const Contact = ({ mail, phone }) => {

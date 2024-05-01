@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import { About, Contact, Header, Skills, Testimonial, Work, Footer, Clients } from './container';
+// import { About, Contact, Header, Skills, Testimonial, Work, Footer, Clients } from './container';
+
 import { Navbar, Loader, SEO } from './components';
 import './App.scss';
 
-import { urlFor, client } from './client';
-import { privacyTerm } from './constants'
+// import { urlFor, client } from './client';
+import { privacyTerm , images} from './constants'
 
 const App = () => {
   const [company, setCompany] = useState([]);
@@ -13,7 +14,7 @@ const App = () => {
   const [seo, setSEO] = useState([]);
   const [term, setTerm] = useState([]);
   const [privacy, setPrivacy] = useState([]);
-  const [loader, setLoader] = useState(true)
+  const [loader, setLoader] = useState(false)
 
   // useEffect(() => {
   //   const companyQuery = '*[_type == "company"]';
@@ -60,20 +61,16 @@ const App = () => {
 
   return (
     <div className="app">
-      <SEO seo={seo} />
-      <Navbar logo={urlFor(company.logoUrl)} />
-      <Header header={header} />
+      {/* <SEO seo={seo} /> */}
+      <Navbar logo={images.whatsapp} />
+      {/* <Header header={header} />
       <About />
       <Work />
       <Skills />
       <Testimonial />
       <Clients />
       <Contact mail={company.mail} phone={company.phone} />
-      <Footer
-        url={urlFor}
-        company={company}
-        term={term.length > 0 ? term : privacyTerm.term}
-        privacy={privacy.length > 0 ? privacy : privacyTerm.privacy} />
+      <Footer url={urlFor} company={company} term={term.length > 0 ? term : privacyTerm.term} privacy={privacy.length > 0 ? privacy : privacyTerm.privacy} /> */}
     </div>
   )
 };

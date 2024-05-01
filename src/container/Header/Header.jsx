@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import './Header.scss';
 
-import { urlFor } from '../../client';
+// import { urlFor } from '../../client';
 
 const Header = ({header}) => {
 
