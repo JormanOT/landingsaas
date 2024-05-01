@@ -1,0 +1,40 @@
+.app__clients{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: transparent;
+    padding: 2rem;
+    margin-top: 5rem;
+
+    h1{
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 500;
+        color: rgb(31,41,55);
+    }
+
+    .app__clients-logo{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 5rem;
+
+        img{
+            max-width: 100%;
+            height: auto;
+            width: 10rem;
+        }
+
+        @media screen and (min-width : 768px) {
+            flex-direction: row;
+        }
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-top: 0;
+    }
+}
