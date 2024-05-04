@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 // import { About, Contact, Header, Skills, Testimonial, Work, Footer, Clients } from './container';
+import { Header } from './container'
 
 import { Navbar, Loader, SEO } from './components';
 import './App.scss';
 
 // import { urlFor, client } from './client';
-import { privacyTerm , images} from './constants'
+import { privacyTerm, images, dummyData } from './constants'
 
 const App = () => {
   const [company, setCompany] = useState([]);
-  const [header, setHeader] = useState([]);
+  const [header, setHeader] = useState(null);
   const [seo, setSEO] = useState([]);
   const [term, setTerm] = useState([]);
   const [privacy, setPrivacy] = useState([]);
@@ -62,9 +63,9 @@ const App = () => {
   return (
     <div className="app">
       {/* <SEO seo={seo} /> */}
-      <Navbar logo={images.whatsapp} />
-      {/* <Header header={header} />
-      <About />
+      <Navbar logo={images.logo} />
+      <Header header={header ?? dummyData.Header} />
+      {/* <About />
       <Work />
       <Skills />
       <Testimonial />

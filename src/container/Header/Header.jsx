@@ -6,7 +6,7 @@ import './Header.scss';
 
 // import { urlFor } from '../../client';
 
-const Header = ({header}) => {
+const Header = ({ header }) => {
 
   return (
     <div id='Inicio' className="app__header">
@@ -17,13 +17,13 @@ const Header = ({header}) => {
               x: [-100, 0],
               opacity: [0, 1]
             }}
-            transition={{ duration: 0.5 }}>{header.title1} <span>{header.title2} </span> {header.title3}  <span>{header.title4} </span></motion.h1>
+            transition={{ duration: 0.5 }}>{header.title}</motion.h1>
           <motion.p whileInView={{
             x: [-100, 0],
             opacity: [0, 1]
           }}
             transition={{ duration: 1 }}>
-            {header.desc}
+            {header.subtitle}
           </motion.p>
           <div>
             <motion.a href='#Contacto' whileHover={{ scale: 1.2 }}
@@ -41,11 +41,16 @@ const Header = ({header}) => {
       </div>
       <div className="app__header-image">
         <div className='app__header-image-body'>
-          <motion.img whileInView={{ opacity: [0, 1] }} transition={{ duration: 0.5, delayChildren: 0.5 }} src={urlFor(header.imgUrl)} alt="header-img" />
+          <motion.img
+            whileInView={{ opacity: [0, 1] }}
+            transition={{ duration: 0.5, delayChildren: 0.5 }}
+            src={images.headerDemoImage}
+            alt="header-img"
+          />
           <div className='app__header-review'>
             <div className='app__header-review-img'>
-              {header.reviewimage?.map((image, index) => (
-                <img className='pic' src={urlFor(image)} key={index} alt='Review Images' />
+              {header.reviewImage?.map((image, index) => (
+                <img className='pic' src={image} key={index} alt='Review Images' />
               ))}
             </div>
             <h2>{header.review} Reseñas +</h2>
