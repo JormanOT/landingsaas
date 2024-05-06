@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from 'react'
 import axios from 'axios'
 
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const token = localStorage.getItem('landingToken') ?? null;
 
 export const useFetchData = () => {
