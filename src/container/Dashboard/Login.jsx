@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import { useFetchData } from '../../hooks/useFetchData.js';
 import { Toaster } from 'react-hot-toast'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const userId = import.meta.env.VITE_USER_ID;
 
 const Login = () => {
     const inputPass = useRef();
     const { FetchData, loading } = useFetchData();
+    const navigate = useNavigate();
 
     const handleAccess = async () => {
         if (inputPass.current.value === '') return toast.error('Escribe la credencial');
@@ -26,14 +28,17 @@ const Login = () => {
             success: (data) => {
                 if (data?.success) {
                     localStorage.setItem('auth', data?.token);
+                    navigate('/dashboard')
+                } else {
+                    throw Error('Credenciales Incorrectas')
                 }
             },
-            error: 'Credenciales Incorrectas'
+            error: e => e.message
         });
     }
 
     return (
-        <Container>
+        <Container className='app'>
             <Toaster />
             <Body>
                 <h2>Inicia Sesion</h2>
@@ -60,6 +65,7 @@ const Body = styled.div`
     width : 40%;
     height : 40%;
     border-radius : 2em;
+    background-color : white;
     box-shadow : 0px 0px 2px rgba(0, 0, 0, 0.15), 0px 2px 5px rgba(0, 0, 0, 0.05), 0px 8px 40px rgba(0, 0, 0, 0.04);
 
     input{

@@ -3,7 +3,6 @@ import App from '../App.jsx'
 import Dashboard from '../container/Dashboard/Dashboard.jsx';
 import Login from '../container/Dashboard/Login.jsx';
 
-const token = localStorage.getItem('auth');
 
 const routes = createBrowserRouter([
     {
@@ -12,7 +11,11 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: token === 'undefined' ? <Dashboard /> : <Login />
+        element: <Dashboard />
+    },
+    {
+        path: '/auth',
+        element: <Login />
     }
 ]);
 

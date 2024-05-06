@@ -1,8 +1,9 @@
 import { useState, useCallback, useMemo } from 'react'
 import axios from 'axios'
+import toast from 'react-hot-toast'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-const token = localStorage.getItem('landingToken') ?? null;
+const token = localStorage.getItem('auth') ?? null;
 
 export const useFetchData = () => {
     const [loading, setLoading] = useState(false);
@@ -25,8 +26,7 @@ export const useFetchData = () => {
             return result.data;
         } catch (error) {
             setLoading(false);
-            console.log(error);
-            return error;
+            console.log(error.response);
         } finally {
             setLoading(false);
         }
