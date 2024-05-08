@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App.jsx'
-import Dashboard from '../container/Dashboard/Dashboard.jsx';
 import Login from '../container/Dashboard/Login.jsx';
+import Header from '../container/Dashboard/modules/Header.jsx';
 
 
 const routes = createBrowserRouter([
@@ -11,7 +11,7 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard />
+        element: <Header />
     },
     {
         path: '/auth',
