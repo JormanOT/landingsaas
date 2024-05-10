@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Loader } from '../../components';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { images } from '../../constants'
+import { images, userBar } from '../../constants'
 
 
 const Dashboard = (Components) => function HOC() {
@@ -18,10 +18,6 @@ const Dashboard = (Components) => function HOC() {
 
   if (loading) return <Center><Loader /></Center>
 
-  const barData = ['Presentacion Banner', 'Informacion del Negocio', 'Servicios', 'Proyectos',
-    'Clientes', 'Testimonios', 'Habilidades', 'Experiencia', 'Contactos', 'SEO'
-  ]
-
   return (
     <Container className='app'>
 
@@ -33,8 +29,13 @@ const Dashboard = (Components) => function HOC() {
               <UserImg src={images.noImage} /> Mi Perfil
             </li>
           </User>
-          {barData.map((link, i) => (
-            <li key={`list-${i}`}>{link}</li>
+          {userBar.map((data, i) => (
+            <Link to={data.link}>
+              <li
+                key={`list-${i}`}>
+                {data.name}
+              </li>
+            </Link>
           ))}
         </ul>
       </SideBar>

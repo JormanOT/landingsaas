@@ -1,3 +1,6 @@
+import headerServices from './header.services'
+import companyServices from './company.services'
+
 const axiosParams = ({ method, header = null, route, body = null }) => {
     return {
         method: method,
@@ -8,26 +11,8 @@ const axiosParams = ({ method, header = null, route, body = null }) => {
 }
 
 const DashboardServices = {
-    getHeader: (id) => {
-        return axiosParams({ method: 'GET', route: `api/v1/header/${id}` });
-    },
-    setHeader: (data) => {
-        return axiosParams({ method: 'POST', route: 'api/v1/header', body: data });
-    },
-    uploadReviewImages: (data) => {
-        return axiosParams({
-            method: 'POST',
-            route: 'api/v1/header/reviewimages',
-            body: data
-        });
-    },
-    uploadHeroImage: (data) => {
-        return axiosParams({
-            method: 'POST',
-            route: 'api/v1/header/heroimage',
-            body: data
-        });
-    }
+    header: headerServices(axiosParams),
+    company : companyServices(axiosParams)
 }
 
 export default DashboardServices;

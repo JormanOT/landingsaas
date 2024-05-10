@@ -22,7 +22,7 @@ const PrincipalImage = ({ image }) => {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setLoading(true);
-        const { uploadHeroImage } = DashboardServices;
+        const { header: { uploadHeroImage } } = DashboardServices;
 
         if (file) {
 

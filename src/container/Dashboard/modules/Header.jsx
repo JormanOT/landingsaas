@@ -25,7 +25,7 @@ const Header = () => {
 
     const updateHeader = async (e) => {
         e.preventDefault();
-        const { setHeader } = DashboardServices;
+        const { header: { setHeader } } = DashboardServices;
 
         const result = await FetchData(setHeader(updateForm));
         if (result?.success) {
@@ -37,7 +37,7 @@ const Header = () => {
 
 
     useEffect(() => {
-        const { getHeader } = DashboardServices;
+        const { header: { getHeader } } = DashboardServices;
         const id = import.meta.env.VITE_USER_ID;
 
         const getData = async () => {

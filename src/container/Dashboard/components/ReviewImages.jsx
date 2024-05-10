@@ -24,7 +24,7 @@ const ClientImages = ({ images }) => {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setLoading(true);
-        const { uploadReviewImages } = DashboardServices;
+        const { header: { uploadReviewImages } } = DashboardServices;
 
         if (file) {
 
