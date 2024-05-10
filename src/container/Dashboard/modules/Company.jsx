@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Dashboard from "../Dashboard"
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
@@ -7,11 +7,8 @@ import toast from 'react-hot-toast'
 import { useFetchData } from '../../../hooks/useFetchData'
 import { PopupInfo } from '../../../components'
 import DashboardServices from '../../../services'
-import { images } from '../../../constants'
+import { images, verifyImage } from '../../../constants'
 import { FaCloudUploadAlt } from 'react-icons/fa'
-import toast from 'react-hot-toast'
-
-
 
 
 const Company = () => {
@@ -39,7 +36,7 @@ const Company = () => {
             toast.promise(uploadImage, {
                 loading: 'Por favor espere...',
                 success: (response) => {
-                    setHeroImage(response.image);
+                    setCompany({ ...company, logo: response.image });
                     return 'Imagen agregada.'
                 },
                 error: e => `${e.message}`,
@@ -76,11 +73,12 @@ const Company = () => {
 
         const getData = async () => {
             const result = await FetchData(getCompany(id));
-            setCompany(result?.data ?? null)
+            setCompany(result ?? null)
         }
 
         getData();
     }, [])
+
     return (
         <Container>
             <h3>Informacion del Negocio</h3>
@@ -141,7 +139,7 @@ const Company = () => {
                         hidden
                     />
                     <img
-                        src={company?.logo === undefined ? images.noImage : verifyImage(company.logo)}
+                        src={company?.logo === undefined ? images.noImage : verifyImage(company?.logo)}
                         alt="Profile"
                         onMouseEnter={() => setChangeLogo(s => !s)} />
                     {changeLogo && (
@@ -163,19 +161,19 @@ const Company = () => {
                 />
                 <input
                     onChange={(e) => handleInput(e, 'facebook')}
-                    defaultValue={company?.social[0] ?? ''}
+                    defaultValue={company?.facebook ?? ''}
                     type="text"
                     placeholder='Facebook'
                 />
                 <input
                     onChange={(e) => handleInput(e, 'linkedin')}
-                    defaultValue={company?.social[1] ?? ''}
+                    defaultValue={company?.linkedin ?? ''}
                     type="text"
                     placeholder='LinkedIn'
                 />
                 <input
                     onChange={(e) => handleInput(e, 'instagram')}
-                    defaultValue={company?.social[2] ?? ''}
+                    defaultValue={company?.instagram ?? ''}
                     type="text"
                     placeholder='Instagram'
                 />
@@ -280,7 +278,7 @@ const ProfileImage = styled.div`
     img{
         width : 250px;
         height : 250px;
-        object-fit : cover;
+        object-fit : contain;
         border : 3px solid white;
     }
 `
